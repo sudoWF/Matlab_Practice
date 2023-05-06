@@ -78,27 +78,27 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% °´¼ü°´ÏÂ£¬½øÈëÎÄ¼ş¼ĞÑ¡Ôñ
+% æŒ‰é”®æŒ‰ä¸‹ï¼Œè¿›å…¥æ–‡ä»¶å¤¹é€‰æ‹©
 global filepath;
-[filename, pathname] = uigetfile('.txt','Ñ¡Ôñ±í¸ñÎÄ¼ş','D:\');
+[filename, pathname] = uigetfile('.txt','é€‰æ‹©è¡¨æ ¼æ–‡ä»¶','D:\');
 disp(filename);
 disp(pathname);
-%Ã»ÓĞ´ò¿ªÎÄ¼şÖ±½ÓÍË³ö£¬ÎÄ¼şÃûÊÇ¿ÕµÄ£¬ĞèÒª´¦Àí
+%æ²¡æœ‰æ‰“å¼€æ–‡ä»¶ç›´æ¥é€€å‡ºï¼Œæ–‡ä»¶åæ˜¯ç©ºçš„ï¼Œéœ€è¦å¤„ç†
 if (ischar(filename) == 0)||(ischar(pathname) == 0)
     disp('no file');
     return;
 end
- %ºÏ²¢ÎÄ¼şÂ·¾¶
+ %åˆå¹¶æ–‡ä»¶è·¯å¾„
 filepath = [pathname filename];
 disp(filepath);
 
-%»­Í¼
+%ç”»å›¾
 points=load(filepath);
 plot(points(:,1),points(:,2),'s','markersize',5);
 grid on
-% xlabel('XÖá')
-% ylabel('YÖá.')
-% title('ÖĞ»ªÈËÃñ¹²ºÍ¹úÍòËê') 
+% xlabel('Xè½´')
+% ylabel('Yè½´.')
+% title('ä¸€ä¸ªé¢˜ç›®') 
 
 
 % --- Executes on button press in pushbutton2.
@@ -107,10 +107,10 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filepath;
-data = importdata(filepath)  %ÎÄ¼şÎ»ÖÃºÍÃû³Æ
-x = data(:,1)  %xµÈÓÚµÚÒ»ÁĞÊı¾İ
-y = data(:,2)  %yµÈÓÚµÚ¶şÁĞÊı¾İ
-a1=polyfit(x,y,1);%1½×¶àÏîÊ½×îĞ¡¶ş³ËÄâºÏ
+data = importdata(filepath)  %æ–‡ä»¶ä½ç½®å’Œåç§°
+x = data(:,1)  %xç­‰äºç¬¬ä¸€åˆ—æ•°æ®
+y = data(:,2)  %yç­‰äºç¬¬äºŒåˆ—æ•°æ®
+a1=polyfit(x,y,1);%1é˜¶å¤šé¡¹å¼æœ€å°äºŒä¹˜æ‹Ÿåˆ
 y1=polyval(a1,x);
 gs = sprintf('y=%dx+%d',a1(1),a1(2));
 hold on;
@@ -124,10 +124,10 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filepath;
-data = importdata(filepath)  %ÎÄ¼şÎ»ÖÃºÍÃû³Æ
-x = data(:,1)  %xµÈÓÚµÚÒ»ÁĞÊı¾İ
-y = data(:,2)  %yµÈÓÚµÚ¶şÁĞÊı¾İ
-a1=polyfit(x,y,3);%5½×¶àÏîÊ½×îĞ¡¶ş³ËÄâºÏ
+data = importdata(filepath)  %æ–‡ä»¶ä½ç½®å’Œåç§°
+x = data(:,1)  %xç­‰äºç¬¬ä¸€åˆ—æ•°æ®
+y = data(:,2)  %yç­‰äºç¬¬äºŒåˆ—æ•°æ®
+a1=polyfit(x,y,3);%5é˜¶å¤šé¡¹å¼æœ€å°äºŒä¹˜æ‹Ÿåˆ
 y1=polyval(a1,x);
 gs = sprintf('y=%dx^3+%dx^2+%dx+%d',a1(1),a1(2),a1(3),a1(4));
 hold on;
@@ -141,11 +141,11 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filepath;
-data = importdata(filepath)  %ÎÄ¼şÎ»ÖÃºÍÃû³Æ
-x = data(:,1)  %xµÈÓÚµÚÒ»ÁĞÊı¾İ
-y = data(:,2)  %yµÈÓÚµÚ¶şÁĞÊı¾İ
-lny = log(y); % ÏÈ¶ÔÒªÄâºÏµÄÊı¾İÈ¡¶ÔÊı
-p = polyfit(x,lny,1); % È»ºó¶ÔÕâ¸öÖĞ¼äÁ¿lny½øĞĞÏßĞÔÄâºÏ
+data = importdata(filepath)  %æ–‡ä»¶ä½ç½®å’Œåç§°
+x = data(:,1)  %xç­‰äºç¬¬ä¸€åˆ—æ•°æ®
+y = data(:,2)  %yç­‰äºç¬¬äºŒåˆ—æ•°æ®
+lny = log(y); % å…ˆå¯¹è¦æ‹Ÿåˆçš„æ•°æ®å–å¯¹æ•°
+p = polyfit(x,lny,1); % ç„¶åå¯¹è¿™ä¸ªä¸­é—´é‡lnyè¿›è¡Œçº¿æ€§æ‹Ÿåˆ
 B = p(1);
 A = exp(p(2));
 x1 = min(x):0.1:max(x)
